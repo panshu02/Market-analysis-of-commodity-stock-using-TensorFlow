@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
         n_time_lags = 4
         df, X_cols = build(data, 4)
-        print("Pre-processed training set:\n")
+        #print("Pre-processed training set:\n")
         #print(df)
         sc1, sc2, X, Y = trainset(df, X_cols)
 
