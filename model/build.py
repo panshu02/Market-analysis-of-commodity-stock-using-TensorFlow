@@ -14,7 +14,15 @@ def build(data, n_time_lags):
     for i in range(len(df.index)):
         if df.loc[i, 'Vol'] != '-':
             df.loc[i, 'Vol'] = float(df.loc[i, 'Vol'][:-1])*1000
+        try:
             df.loc[i, 'Price'] = float(df.loc[i, 'Price'])
+        except:
+            price = df.loc[i, 'Price']
+            price_li = price.split(',')
+            price = ''
+            for j in price_li:
+                price += j
+            df.loc[i, 'Price'] = float(price)
 
     for i in range(n_time_lags):
 
